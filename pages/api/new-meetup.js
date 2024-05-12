@@ -6,9 +6,10 @@ import { MongoClient } from "mongodb";
 async function handler(req, res) {
   if (req.method === "POST") {
     const data = req.body;
+    console.log(process.env);
 
     const client = await MongoClient.connect(
-      "mongodb+srv:/<your-cluster-url>0.ntrwp.mongodb.net/meetups?retryWrites=true&w=majority"
+      "mongodb://mongoadmin:secret@mongodb:27017/meetups?authSource=admin?retryWrites=true&w=majority"
     );
     const db = client.db();
 
